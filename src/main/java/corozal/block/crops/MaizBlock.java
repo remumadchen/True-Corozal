@@ -1,0 +1,133 @@
+package corozal.block.crops;
+
+import corozal.Corozal;
+import corozal.item.ModItems;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.CropBlock;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.IntegerProperty;
+import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.level.material.PushReaction;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.VoxelShape;
+
+public class MaizBlock extends CropBlock {
+    public static final int FIRST_STAGE_MAX_AGE = 3;
+    public static final IntegerProperty AGE = IntegerProperty.create("age", 0, 5);
+
+    /**
+     * Las colisiones de los cultivos
+     * Dependen de la cantidad de estados que tiene tu cultivo!
+     */
+    private static final VoxelShape[] SHAPE_BY_AGE = new VoxelShape[]{
+    Block.box(0.0, 0.0, 0.0, 16.0, 4.0, 16.0),
+    Block.box(0.0, 0.0, 0.0, 16.0, 8.0, 16.0),
+    Block.box(0.0, 0.0, 0.0, 16.0, 12.0, 16.0),
+    Block.box(0.0, 0.0, 0.0, 16.0, 16.0, 16.0),
+    Block.box(0.0, 0.0, 0.0, 16.0, 8.0, 16.0),
+    Block.box(0.0, 0.0, 0.0, 16.0, 16.0, 16.0),
+    };
+
+    @Override
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
+        builder.add(AGE);
+    }
+
+    @Override
+    protected void randomTick(BlockState blockState, ServerLevel serverLevel, BlockPos blockPos, RandomSource randomSource) {
+        if (serverLevel.getRawBrightness(blockPos, 0) < 9) {
+            return;
+        }
+
+        int currentAge = this.getAge(blockState);
+        if (currentAge >= this.getMaxAge()) {
+            return;
+        }
+
+        float f = getGrowthSpeed(this, serverLevel, blockPos);
+        if (randomSource.nextInt((int)(25.0F / f) + 1) == 0)
+        {
+            if (currentAge >= FIRST_STAGE_MAX_AGE)
+            {
+                if (serverLevel.isEmptyBlock(blockPos.above()))
+                {
+                    serverLevel.setBlock(blockPos.above(), getStateForAge(currentAge + 1), 2 );
+                }
+            }
+            if(serverLevel.getBlockState(blockPos.above()).is(this)) {
+                serverLevel.setBlock(blockPos.above(), getStateForAge(currentAge + 1), 2);
+            }
+
+            serverLevel.setBlock(blockPos, getStateForAge(currentAge + 1), 2 );
+        }
+    }
+
+    @Override
+    public void growCrops(Level level, BlockPos blockPos, BlockState blockState) {
+        int nextAge = Math.min(this.getMaxAge(), this.getAge(blockState) + this.getBonemealAgeIncrease(level));
+
+        if (nextAge == FIRST_STAGE_MAX_AGE ) {
+            level.setBlock(blockPos.above(), getStateForAge(nextAge), 2);
+        }
+        else
+        {
+            level.setBlock(blockPos, this.getStateForAge( nextAge - 1), 2);
+        }
+
+        level.setBlock(blockPos, this.getStateForAge(nextAge), 3);
+    }
+
+    public IntegerProperty getAgeProperty() {
+        return AGE;
+    }
+
+
+    @Override
+    public boolean mayPlaceOn(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos) {
+        return super.mayPlaceOn(blockState, blockGetter, blockPos) ||
+        (
+        blockGetter.getBlockState(blockPos).is(this) &&
+        blockGetter.getBlockState(blockPos).getValue(AGE) >= FIRST_STAGE_MAX_AGE + 1
+        );
+    }
+
+    @Override
+    public int getMaxAge() {
+        return FIRST_STAGE_MAX_AGE + 2;
+    }
+
+    @Override
+    protected ItemLike getBaseSeedId() {
+        return ModItems.MAIZ_SEMILLA;
+    }
+
+    @Override
+    protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+        return SHAPE_BY_AGE[this.getAge(state)];
+    }
+
+    public MaizBlock() {
+        super(
+        BlockBehaviour.Properties.of()
+        .mapColor(MapColor.PLANT)
+        .randomTicks()
+        .instabreak()
+        .sound(SoundType.CROP)
+        .pushReaction(PushReaction.DESTROY)
+        .noCollision()
+        .setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(Corozal.MOD_ID, "maiz")))
+        );
+    }
+}

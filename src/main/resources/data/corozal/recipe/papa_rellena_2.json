@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "food",
+  "key": {
+    "A": "corozal:harina_pan",
+    "B": "minecraft:water_bucket",
+    "C": "minecraft:egg",
+    "D": "minecraft:baked_potato"
+  },
+  "pattern": [
+    "DAD",
+    "CBC",
+    "DCD"
+  ],
+  "result": {
+    "count": 8,
+    "id": "corozal:papa_rellena_2"
+  }
+}

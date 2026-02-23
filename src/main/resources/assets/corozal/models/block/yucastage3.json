@@ -1,0 +1,6 @@
+{
+  "parent": "corozal:block/yucastagebase",
+  "textures": {
+    "crop": "corozal:block/semillayuca3"
+  }
+}

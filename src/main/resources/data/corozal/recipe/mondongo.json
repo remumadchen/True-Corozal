@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "food",
+  "key": {
+    "A": "minecraft:baked_potato",
+    "B": "minecraft:water_bucket",
+    "C": "minecraft:carrot",
+    "D": "minecraft:cooked_beef",
+    "E": "corozal:yuca"
+  },
+  "pattern": [
+    "ACE",
+    "DBD"
+  ],
+  "result": {
+    "count": 2,
+    "id": "corozal:mondongo"
+  }
+}

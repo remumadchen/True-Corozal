@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "food",
+  "key": {
+    "A": "corozal:maiz",
+    "B": "minecraft:water_bucket"
+  },
+  "pattern": [
+    "  A",
+    " B ",
+    "A  "
+  ],
+  "result": {
+    "count": 16,
+    "id": "corozal:pedazo_pepito"
+  }
+}

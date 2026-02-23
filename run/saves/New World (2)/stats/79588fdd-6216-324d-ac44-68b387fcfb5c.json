@@ -1,0 +1,32 @@
+{
+  "stats": {
+    "minecraft:used": {
+      "corozal:cachapa": 2,
+      "corozal:arepa": 1
+    },
+    "minecraft:crafted": {
+      "corozal:cachapa": 4,
+      "corozal:panela": 9,
+      "corozal:harina_pan": 2,
+      "corozal:harina_trigo": 1,
+      "minecraft:air": 0,
+      "corozal:arepa": 1
+    },
+    "minecraft:custom": {
+      "minecraft:interact_with_crafting_table": 3,
+      "minecraft:time_since_rest": 1561,
+      "minecraft:walk_one_cm": 3332,
+      "minecraft:leave_game": 1,
+      "minecraft:play_time": 1561,
+      "minecraft:jump": 3,
+      "minecraft:time_since_death": 1561,
+      "minecraft:interact_with_furnace": 2,
+      "minecraft:sprint_one_cm": 104,
+      "minecraft:interact_with_smoker": 3,
+      "minecraft:total_world_time": 1621,
+      "minecraft:fly_one_cm": 104,
+      "minecraft:interact_with_blast_furnace": 3
+    }
+  },
+  "DataVersion": 4671
+}

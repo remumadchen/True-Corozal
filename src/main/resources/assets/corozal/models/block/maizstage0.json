@@ -1,0 +1,6 @@
+{
+    "parent": "corozal:block/maizstagebase",
+    "textures": {
+        "crop": "corozal:block/semillamaiz0"
+    }
+}

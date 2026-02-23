@@ -1,0 +1,33 @@
+{
+  "item.corozal.arepa": "Arepa",
+  "item.corozal.bolon": "Bolon",
+  "item.corozal.maiz": "Corn",
+  "item.corozal.cuca": "Cuca",
+  "item.corozal.cuca_dorada": "Golden Cuca",
+  "item.corozal.panela": "Panela",
+  "item.corozal.yuca": "Cassava",
+  "item.corozal.harina_trigo": "Wheat Flour",
+  "item.corozal.aceite_mazeite": "Mazeite Oil",
+  "item.corozal.harina_pan": "Pan Flour",
+  "item.corozal.cachapa": "Cachapa",
+  "item.corozal.yuca_frita": "Fried Cassava",
+  "item.corozal.salchipapa": "Sausage and French Fries",
+  "item.corozal.empanada": "Empanada",
+  "item.corozal.pastelito": "Pastelito",
+  "item.corozal.hallaca": "Hallaca",
+  "item.corozal.pan_almidon": "Cassava Bread",
+  "item.corozal.pernil": "Pork Leg",
+  "item.corozal.tequeno": "Cheese Sticks",
+  "item.corozal.encebollado": "Encebollado",
+  "item.corozal.pepito": "Pepito",
+  "item.corozal.pedazo_pepito": "Pepito Bit",
+  "item.corozal.malta": "Malta",
+  "item.corozal.mondongo": "Mondongo",
+  "item.corozal.papa_rellena": "Meat-Stuffed Potato",
+  "item.corozal.papa_rellena_2": "Egg-Stuffed Potato",
+
+  "block.corozal.semilla_maiz": "Corn Seeds",
+  "block.corozal.semilla_yuca": "Cassava Seeds",
+
+  "itemgroup.corozal": "Corozal"
+}

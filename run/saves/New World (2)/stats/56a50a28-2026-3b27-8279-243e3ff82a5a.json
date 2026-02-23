@@ -1,0 +1,34 @@
+{
+  "stats": {
+    "minecraft:dropped": {
+      "corozal:maiz": 1
+    },
+    "minecraft:picked_up": {
+      "corozal:semilla_yuca": 5,
+      "corozal:maiz": 1
+    },
+    "minecraft:mined": {
+      "corozal:yuca": 5
+    },
+    "minecraft:used": {
+      "corozal:maiz": 5,
+      "corozal:semilla_maiz": 2,
+      "minecraft:netherite_hoe": 1,
+      "corozal:semilla_yuca": 7
+    },
+    "minecraft:custom": {
+      "minecraft:sprint_one_cm": 2949,
+      "minecraft:time_since_rest": 2726,
+      "minecraft:walk_one_cm": 12671,
+      "minecraft:total_world_time": 7358,
+      "minecraft:fly_one_cm": 5848,
+      "minecraft:crouch_one_cm": 1876,
+      "minecraft:sneak_time": 299,
+      "minecraft:play_time": 2726,
+      "minecraft:jump": 24,
+      "minecraft:time_since_death": 2726,
+      "minecraft:drop": 1
+    }
+  },
+  "DataVersion": 4671
+}
