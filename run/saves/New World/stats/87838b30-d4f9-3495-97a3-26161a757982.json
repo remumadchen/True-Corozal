@@ -1,0 +1,17 @@
+{
+  "stats": {
+    "minecraft:used": {
+      "minecraft:bone_meal": 1,
+      "corozal:semilla_maiz": 1
+    },
+    "minecraft:custom": {
+      "minecraft:time_since_rest": 953,
+      "minecraft:walk_one_cm": 2325,
+      "minecraft:total_world_time": 2044,
+      "minecraft:leave_game": 1,
+      "minecraft:play_time": 953,
+      "minecraft:time_since_death": 953
+    }
+  },
+  "DataVersion": 4671
+}

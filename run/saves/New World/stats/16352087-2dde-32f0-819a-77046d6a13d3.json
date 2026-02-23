@@ -1,0 +1,24 @@
+{
+  "stats": {
+    "minecraft:mined": {
+      "corozal:maiz": 10
+    },
+    "minecraft:used": {
+      "corozal:semilla_maiz": 8
+    },
+    "minecraft:custom": {
+      "minecraft:sprint_one_cm": 458,
+      "minecraft:time_since_rest": 604,
+      "minecraft:walk_one_cm": 5126,
+      "minecraft:total_world_time": 1414,
+      "minecraft:leave_game": 1,
+      "minecraft:play_time": 604,
+      "minecraft:time_since_death": 604
+    },
+    "minecraft:picked_up": {
+      "corozal:semilla_maiz": 16,
+      "corozal:maiz": 3
+    }
+  },
+  "DataVersion": 4671
+}

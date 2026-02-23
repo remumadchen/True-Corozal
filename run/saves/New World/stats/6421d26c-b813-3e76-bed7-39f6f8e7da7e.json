@@ -1,0 +1,24 @@
+{
+  "stats": {
+    "minecraft:mined": {
+      "corozal:maiz": 9
+    },
+    "minecraft:used": {
+      "minecraft:bone_meal": 22,
+      "corozal:semilla_maiz": 9
+    },
+    "minecraft:custom": {
+      "minecraft:sprint_one_cm": 1131,
+      "minecraft:time_since_rest": 1023,
+      "minecraft:fall_one_cm": 225,
+      "minecraft:walk_one_cm": 4686,
+      "minecraft:total_world_time": 1040,
+      "minecraft:leave_game": 1,
+      "minecraft:fly_one_cm": 2207,
+      "minecraft:play_time": 1023,
+      "minecraft:jump": 11,
+      "minecraft:time_since_death": 1023
+    }
+  },
+  "DataVersion": 4671
+}
