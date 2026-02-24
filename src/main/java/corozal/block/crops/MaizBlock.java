@@ -8,12 +8,15 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
@@ -22,6 +25,7 @@ import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import org.jspecify.annotations.Nullable;
 
 public class MaizBlock extends CropBlock {
     public static final int FIRST_STAGE_MAX_AGE = 3;
@@ -53,11 +57,16 @@ public class MaizBlock extends CropBlock {
 
         int currentAge = this.getAge(blockState);
 
-            if (serverLevel.isEmptyBlock(blockPos.above()) && currentAge == FIRST_STAGE_MAX_AGE) { // nueva logica
-                serverLevel.setBlock(blockPos.above(), getStateForAge(currentAge + 1), 2);
-            }
-            serverLevel.setBlock(blockPos, getStateForAge(currentAge + 1), 2);
+        if (serverLevel.isEmptyBlock(blockPos.above()) && currentAge == FIRST_STAGE_MAX_AGE) { // nueva logica
+            serverLevel.setBlock(blockPos.above(), getStateForAge(currentAge + 1), 2);
         }
+
+        if(currentAge == FIRST_STAGE_MAX_AGE) {
+            return;
+        }
+
+        serverLevel.setBlock(blockPos, getStateForAge(currentAge + 1), 2);
+    }
 
     // inicio crecimiento por bonemeal
     @Override
@@ -82,9 +91,18 @@ public class MaizBlock extends CropBlock {
     public boolean mayPlaceOn(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos) {
         return super.mayPlaceOn(blockState, blockGetter, blockPos) ||
         (
-        blockGetter.getBlockState(blockPos).is(this) &&
-        blockGetter.getBlockState(blockPos).getValue(AGE) >= FIRST_STAGE_MAX_AGE + 1
+        blockState.is(this) &&
+        blockState.getValue(AGE) == FIRST_STAGE_MAX_AGE
         );
+    }
+
+    @Override
+    public BlockState playerWillDestroy(Level level, BlockPos blockPos, BlockState blockState, Player player) {
+        if( level.getBlockState(blockPos.below()).is(this) ) {
+            level.destroyBlock(blockPos.below(), true, player);
+        }
+
+        return super.playerWillDestroy(level, blockPos, blockState, player);
     }
 
     @Override
