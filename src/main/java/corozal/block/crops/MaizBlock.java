@@ -52,47 +52,31 @@ public class MaizBlock extends CropBlock {
         }
 
         int currentAge = this.getAge(blockState);
-        if (currentAge >= this.getMaxAge()) {
-            return;
-        }
 
-        float f = getGrowthSpeed(this, serverLevel, blockPos);
-        if (randomSource.nextInt((int)(25.0F / f) + 1) == 0)
-        {
-            if (currentAge >= FIRST_STAGE_MAX_AGE)
-            {
-                if (serverLevel.isEmptyBlock(blockPos.above()))
-                {
-                    serverLevel.setBlock(blockPos.above(), getStateForAge(currentAge + 1), 2 );
-                }
-            }
-            if(serverLevel.getBlockState(blockPos.above()).is(this)) {
+            if (serverLevel.isEmptyBlock(blockPos.above()) && currentAge == FIRST_STAGE_MAX_AGE) { // nueva logica
                 serverLevel.setBlock(blockPos.above(), getStateForAge(currentAge + 1), 2);
             }
-
-            serverLevel.setBlock(blockPos, getStateForAge(currentAge + 1), 2 );
+            serverLevel.setBlock(blockPos, getStateForAge(currentAge + 1), 2);
         }
-    }
 
+    // inicio crecimiento por bonemeal
     @Override
     public void growCrops(Level level, BlockPos blockPos, BlockState blockState) {
         int nextAge = Math.min(this.getMaxAge(), this.getAge(blockState) + this.getBonemealAgeIncrease(level));
 
-        if (nextAge == FIRST_STAGE_MAX_AGE ) {
+        if (nextAge == FIRST_STAGE_MAX_AGE) {
             level.setBlock(blockPos.above(), getStateForAge(nextAge), 2);
-        }
-        else
-        {
-            level.setBlock(blockPos, this.getStateForAge( nextAge - 1), 2);
+        } else {
+            level.setBlock(blockPos, this.getStateForAge(nextAge - 1), 2);
         }
 
         level.setBlock(blockPos, this.getStateForAge(nextAge), 3);
     }
+    // final crecimiento por bonemeal
 
     public IntegerProperty getAgeProperty() {
         return AGE;
     }
-
 
     @Override
     public boolean mayPlaceOn(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos) {
