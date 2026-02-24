@@ -56,16 +56,19 @@ public class MaizBlock extends CropBlock {
         }
 
         int currentAge = this.getAge(blockState);
+        int nextAge = currentAge + 1;
 
-        if (serverLevel.isEmptyBlock(blockPos.above()) && currentAge == FIRST_STAGE_MAX_AGE) { // nueva logica
-            serverLevel.setBlock(blockPos.above(), getStateForAge(currentAge + 1), 2);
-        }
-
-        if(currentAge == FIRST_STAGE_MAX_AGE) {
+        if(currentAge == FIRST_STAGE_MAX_AGE + 1 || currentAge == getMaxAge()) {
             return;
         }
 
-        serverLevel.setBlock(blockPos, getStateForAge(currentAge + 1), 2);
+        if (serverLevel.isEmptyBlock(blockPos.above()) && nextAge == FIRST_STAGE_MAX_AGE) { // nueva logica
+            serverLevel.setBlock(blockPos, getStateForAge(FIRST_STAGE_MAX_AGE + 1), 2);
+            serverLevel.setBlock(blockPos.above(), getStateForAge(FIRST_STAGE_MAX_AGE + 2), 2);
+            return;
+        }
+
+        serverLevel.setBlock(blockPos, getStateForAge(nextAge), 2);
     }
 
     // inicio crecimiento por bonemeal
@@ -92,7 +95,7 @@ public class MaizBlock extends CropBlock {
         return super.mayPlaceOn(blockState, blockGetter, blockPos) ||
         (
         blockState.is(this) &&
-        blockState.getValue(AGE) == FIRST_STAGE_MAX_AGE
+        blockState.getValue(AGE) == FIRST_STAGE_MAX_AGE + 1
         );
     }
 
