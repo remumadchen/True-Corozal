@@ -1,0 +1,33 @@
+{
+  "item.corozal.arepa": "Arepa",
+  "item.corozal.bolon": "Bolón",
+  "item.corozal.maiz": "Maíz",
+  "item.corozal.cuca": "Cuca",
+  "item.corozal.cuca_dorada": "Cuca Dorá'",
+  "item.corozal.panela": "Papelón",
+  "item.corozal.yuca": "Yuca",
+  "item.corozal.harina_trigo": "Harina de Trigo",
+  "item.corozal.aceite_mazeite": "Aceite Mazeite",
+  "item.corozal.harina_pan": "Harina PAN",
+  "item.corozal.cachapa": "Cachapa",
+  "item.corozal.yuca_frita": "Yuca Frita",
+  "item.corozal.salchipapa": "Salchipapa",
+  "item.corozal.empanada": "Empanada",
+  "item.corozal.pastelito": "Pastelito",
+  "item.corozal.hallaca": "Hallaca",
+  "item.corozal.pan_almidon": "Pan de Almidón",
+  "item.corozal.pernil": "Pernil",
+  "item.corozal.tequeno": "Tequeño",
+  "item.corozal.encebollado": "Encebollado",
+  "item.corozal.pepito": "Pepito",
+  "item.corozal.pedazo_pepito": "Pedazo de Pepito",
+  "item.corozal.malta": "Malta",
+  "item.corozal.mondongo": "Mondongo",
+  "item.corozal.papa_rellena": "Papa Rellena con Carne",
+  "item.corozal.papa_rellena_2": "Papa Rellena con Huevo",
+
+  "block.corozal.semilla_maiz": "Semilla de Maíz",
+  "block.corozal.semilla_yuca": "Semilla de Yuca",
+
+  "itemgroup.corozal": "Corozal"
+}

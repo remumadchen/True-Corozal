@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "food",
+  "key": {
+    "A": "corozal:harina_pan",
+    "B": "minecraft:water_bucket",
+    "C": "minecraft:cooked_porkchop",
+    "D": "minecraft:cooked_beef",
+    "E": "minecraft:jungle_leaves"
+
+  },
+  "pattern": [
+    "EAE",
+    "CDC",
+    "EBE"
+  ],
+  "result": {
+    "count": 6,
+    "id": "corozal:hallaca"
+  }
+}

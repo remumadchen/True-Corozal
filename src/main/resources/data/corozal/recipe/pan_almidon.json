@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "food",
+  "key": {
+    "A": "corozal:yuca",
+    "B": "minecraft:water_bucket"
+  },
+  "pattern": [
+    "ABA"
+  ],
+  "result": {
+    "count": 8,
+    "id": "corozal:pan_almidon"
+  }
+}

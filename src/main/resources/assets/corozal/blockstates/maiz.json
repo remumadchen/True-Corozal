@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "age=0": { "model": "corozal:block/maizstage0" },
+        "age=1": { "model": "corozal:block/maizstage1" },
+        "age=2": { "model": "corozal:block/maizstage2" },
+        "age=3": { "model": "corozal:block/maizstage3" },
+        "age=4": { "model": "corozal:block/maizstage4" },
+        "age=5": { "model": "corozal:block/maizstage5" }
+    }
+}

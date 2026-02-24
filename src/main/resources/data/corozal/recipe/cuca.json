@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "food",
+  "key": {
+    "A": "corozal:panela",
+    "B": "corozal:harina_trigo",
+    "C": "minecraft:egg",
+    "D": "minecraft:milk_bucket"
+  },
+  "pattern": [
+    "AAA",
+    "B B",
+    "CDC"
+  ],
+  "result": {
+    "count": 6,
+    "id": "corozal:cuca"
+  }
+}

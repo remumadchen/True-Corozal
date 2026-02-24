@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "food",
+  "key": {
+    "A": "minecraft:cooked_cod",
+    "B": "minecraft:water_bucket",
+    "C": "corozal:yuca"
+  },
+  "pattern": [
+    "ACA",
+    " B ",
+    "ACA"
+  ],
+  "result": {
+    "count": 1,
+    "id": "corozal:encebollado"
+  }
+}

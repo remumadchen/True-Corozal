@@ -1,0 +1,35 @@
+{
+	"schemaVersion": 1,
+	"id": "corozal",
+	"version": "0.1",
+	"name": "Corozal",
+	"description": "Venezuelan Items",
+	"authors": [
+		"GXGang"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/HakkaYoro/Corozal"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/corozal/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"corozal.Corozal"
+		],
+		"client": [
+			"corozal.CorozalClient"
+		],
+		"fabric-datagen": [ 
+      		"corozal.CorozalDataGenerator"
+    	] 
+	},
+	"mixins": [],
+	"depends": {
+		"fabricloader": ">=0.16.5",
+		"minecraft": "~1.21.11",
+		"java": ">=21",
+		"fabric-api": "*"
+	}
+}

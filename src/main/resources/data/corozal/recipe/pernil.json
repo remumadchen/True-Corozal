@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "food",
+  "key": {
+    "A": "minecraft:cooked_porkchop",
+    "B": "corozal:aceite_mazeite"
+  },
+  "pattern": [
+    "AAA",
+    " B "
+  ],
+  "result": {
+    "count": 1,
+    "id": "corozal:pernil"
+  }
+}
