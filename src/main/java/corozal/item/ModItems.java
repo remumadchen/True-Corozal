@@ -3,10 +3,12 @@ package corozal.item;
 import com.google.common.collect.ImmutableList;
 import corozal.Corozal;
 import corozal.item.custom.*;
+import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.alchemy.Potion;
 
 import java.util.List;
 
@@ -34,10 +36,19 @@ public class ModItems {
     public static final Item TEQUENO = registerItem("tequeno", new TequenoItem());
     public static final Item ENCEBOLLADO = registerItem("encebollado", new EncebolladoItem());
     public static final Item PEPITO = registerItem("pepito", new PepitoItem());
-    public static final Item MALTA = registerItem("malta", new MaltaItem());
     public static final Item MONDONGO = registerItem("mondongo", new MondongoItem());
     public static final Item PAPA_RELLENA = registerItem("papa_rellena", new PapaRellenaItem());
     public static final Item PAPA_RELLENA_2 = registerItem("papa_rellena_2", new PapaRellena2Item());
+
+    /*
+    Pociones / Bebidas
+     */
+
+    /**
+     * Las maltas
+     */
+    public static final Item MALTA = registerItem("malta", new MaltaItem());
+
     // COMIDAS NO COMESTIBLES
     public static final Item PANELA = registerItem("panela", new PanelaItem());
     public static final Item YUCA = registerItem("yuca", new YucaItem());
@@ -69,19 +80,6 @@ public class ModItems {
         return itemRegister;
     }
 
-//    private static Potion registerPotion(String name, Potion potion) {
-//        return  registerPotion(name, potion, true);
-//    }
-//
-//    private static Potion registerPotion(String name, Potion potion, boolean addToEntries) {
-//        Potion potionRegister = Registry.register(BuiltInRegistries.POTION, Identifier.fromNamespaceAndPath(Corozal.MOD_ID, name), potion);
-//
-//        if(addToEntries) {
-//            entriesBuilder.add(potionRegister);
-//        }
-//
-//        return potion;
-//    }
 
     /**
      * Registra los Items de los mods
