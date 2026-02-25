@@ -57,9 +57,11 @@ public class ModItems {
     public static final Item HARINA_PAN = registerItem("harina_pan", new HarinaPanItem());
     public static final Item ACEITE_MAZEITE = registerItem("aceite_mazeite", new AceiteMazeiteItem());
     public static final Item PEDAZO_PEPITO = registerItem("pedazo_pepito", new PedazoPepitoItem());
+    public static final Item PLATANO = registerItem("platano", new PlatanoItem());
     // SEMILLAS
     public static final Item MAIZ_SEMILLA = registerItem("semilla_maiz", new SemillaMaizItem());
     public static final Item YUCA_SEMILLA = registerItem("semilla_yuca", new SemillaYucaItem());
+    public static final Item PLATANO_SEMILLA = registerItem("semilla_platano", new SemillaPlatanoItem());
 
     /**
      * Registra un item en el juego y lo ingresa a la tab de creativo

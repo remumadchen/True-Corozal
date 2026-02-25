@@ -2,6 +2,7 @@ package corozal.block;
 
 import corozal.Corozal;
 import corozal.block.crops.MaizBlock;
+import corozal.block.crops.PlatanoBlock;
 import corozal.block.crops.YucaBlock;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -12,8 +13,9 @@ public class ModBlocks {
     // Comentario util
     public static final Block MAIZ = registerBlock("maiz", new MaizBlock()); // el nombre en crops tiene que matchear el new {ABCDE}Block
     public static final Block YUCA = registerBlock("yuca", new YucaBlock());
+    public static final Block PLATANO = registerBlock("platano", new PlatanoBlock());
 
-    // Método auxiliar para registrar un bloque sin BlockItem (como cultivos puros)
+    // Metodo auxiliar para registrar un bloque sin BlockItem (como cultivos puros)
     private static Block registerBlock(String name, Block block) {
         return Registry.register(BuiltInRegistries.BLOCK, Identifier.fromNamespaceAndPath(Corozal.MOD_ID, name), block);
     }

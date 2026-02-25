@@ -26,9 +26,11 @@
   "item.corozal.papa_rellena": "Meat-Stuffed Potato",
   "item.corozal.papa_rellena_2": "Egg-Stuffed Potato",
   "item.corozal.choclo_mayo": "Cheesed Corn",
+  "item.corozal.platano": "Plantain",
 
   "block.corozal.semilla_maiz": "Corn Seeds",
   "block.corozal.semilla_yuca": "Cassava Seeds",
+  "block.corozal.semilla_platano": "Plantain Seeds",
 
   "itemgroup.corozal": "Corozal"
 }

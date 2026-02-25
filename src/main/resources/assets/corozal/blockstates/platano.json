@@ -1,0 +1,12 @@
+{
+  "variants": {
+    "age=0": { "model": "corozal:block/platanostage0" },
+    "age=1": { "model": "corozal:block/platanostage1" },
+    "age=2": { "model": "corozal:block/platanostage2" },
+    "age=3": { "model": "corozal:block/platanostage3" },
+    "age=4": { "model": "corozal:block/platanostage4" },
+    "age=5": { "model": "corozal:block/platanostage5" },
+    "age=6": { "model": "corozal:block/platanostage6" },
+    "age=7": { "model": "corozal:block/platanostage7" }
+  }
+}
