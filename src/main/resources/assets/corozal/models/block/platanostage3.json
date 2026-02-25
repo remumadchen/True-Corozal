@@ -1,0 +1,6 @@
+{
+  "parent": "corozal:block/platanostagebase",
+  "textures": {
+    "crop": "corozal:block/semillaplatano3"
+  }
+}

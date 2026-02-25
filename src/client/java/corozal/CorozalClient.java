@@ -17,5 +17,6 @@ public class CorozalClient implements ClientModInitializer {
 		 */
 		BlockRenderLayerMap.putBlock(ModBlocks.MAIZ, ChunkSectionLayer.CUTOUT);
 		BlockRenderLayerMap.putBlock(ModBlocks.YUCA, ChunkSectionLayer.CUTOUT);
+		BlockRenderLayerMap.putBlock(ModBlocks.PLATANO, ChunkSectionLayer.CUTOUT);
 	}
 }

@@ -9,14 +9,12 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.SoundType;
-import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
@@ -25,20 +23,17 @@ import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jspecify.annotations.Nullable;
 
-public class MaizBlock extends CropBlock {
-    public static final int FIRST_STAGE_MAX_AGE = 3;
-    public static final IntegerProperty AGE = IntegerProperty.create("age", 0, 5);
+public class PlatanoBlock extends CropBlock {
+    public static final int FIRST_STAGE_MAX_AGE = 5;
+    public static final IntegerProperty AGE = IntegerProperty.create("age", 0, 7);
 
-    /**
-     * Las colisiones de los cultivos
-     * Dependen de la cantidad de estados que tiene tu cultivo!
-     */
     private static final VoxelShape[] SHAPE_BY_AGE = new VoxelShape[]{
+    Block.box(0.0, 0.0, 0.0, 16.0, 2.0, 16.0),
     Block.box(0.0, 0.0, 0.0, 16.0, 6.0, 16.0),
     Block.box(0.0, 0.0, 0.0, 16.0, 8.0, 16.0),
     Block.box(0.0, 0.0, 0.0, 16.0, 12.0, 16.0),
+    Block.box(0.0, 0.0, 0.0, 16.0, 16.0, 16.0),
     Block.box(0.0, 0.0, 0.0, 16.0, 16.0, 16.0),
     Block.box(0.0, 0.0, 0.0, 16.0, 16.0, 16.0),
     Block.box(0.0, 0.0, 0.0, 16.0, 16.0, 16.0),
@@ -58,16 +53,15 @@ public class MaizBlock extends CropBlock {
         int currentAge = this.getAge(blockState);
         int nextAge = currentAge + 1;
 
-        if(currentAge == FIRST_STAGE_MAX_AGE + 1 || currentAge == getMaxAge()) {
+        if(currentAge == FIRST_STAGE_MAX_AGE || currentAge == getMaxAge()) {
             return;
         }
 
-        if (serverLevel.isEmptyBlock(blockPos.above()) && nextAge == FIRST_STAGE_MAX_AGE) { // nueva logica
-            serverLevel.setBlock(blockPos, getStateForAge(FIRST_STAGE_MAX_AGE + 1), 2);
-            serverLevel.setBlock(blockPos.above(), getStateForAge(FIRST_STAGE_MAX_AGE + 2), 2);
-            return;
+        if (serverLevel.isEmptyBlock(blockPos.above()) && nextAge == FIRST_STAGE_MAX_AGE) {
+            serverLevel.setBlock(blockPos, getStateForAge(FIRST_STAGE_MAX_AGE), 2);
+            serverLevel.setBlock(blockPos.above(), getStateForAge(FIRST_STAGE_MAX_AGE + 1), 2);
+            serverLevel.setBlock(blockPos.above(), this.getStateForAge(FIRST_STAGE_MAX_AGE + 2), 2);
         }
-
         serverLevel.setBlock(blockPos, getStateForAge(nextAge), 2);
     }
 
@@ -115,7 +109,7 @@ public class MaizBlock extends CropBlock {
 
     @Override
     protected ItemLike getBaseSeedId() {
-        return ModItems.MAIZ_SEMILLA;
+        return ModItems.PLATANO_SEMILLA;
     }
 
     @Override
@@ -123,7 +117,7 @@ public class MaizBlock extends CropBlock {
         return SHAPE_BY_AGE[this.getAge(state)];
     }
 
-    public MaizBlock() {
+    public PlatanoBlock() {
         super(
         BlockBehaviour.Properties.of()
         .mapColor(MapColor.PLANT)
@@ -132,7 +126,7 @@ public class MaizBlock extends CropBlock {
         .sound(SoundType.CROP)
         .pushReaction(PushReaction.DESTROY)
         .noCollision()
-        .setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(Corozal.MOD_ID, "maiz")))
+        .setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(Corozal.MOD_ID, "platano")))
         );
     }
 }

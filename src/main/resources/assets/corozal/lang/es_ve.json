@@ -25,9 +25,12 @@
   "item.corozal.mondongo": "Mondongo",
   "item.corozal.papa_rellena": "Papa Rellena con Carne",
   "item.corozal.papa_rellena_2": "Papa Rellena con Huevo",
+  "item.corozal.choclo_mayo": "Choclo con Mayonesa",
+  "item.corozal.platano": "Plátano",
 
   "block.corozal.semilla_maiz": "Semilla de Maíz",
   "block.corozal.semilla_yuca": "Semilla de Yuca",
+  "block.corozal.semilla_platano": "Semilla de Platano",
 
   "itemgroup.corozal": "Corozal"
 }
