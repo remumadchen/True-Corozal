@@ -39,6 +39,7 @@ public class ModItems {
     public static final Item MONDONGO = registerItem("mondongo", new MondongoItem());
     public static final Item PAPA_RELLENA = registerItem("papa_rellena", new PapaRellenaItem());
     public static final Item PAPA_RELLENA_2 = registerItem("papa_rellena_2", new PapaRellena2Item());
+    public static final Item CHOCLO_MAYO = registerItem("choclo_mayo", new ChocloMayoItem());
 
     /*
     Pociones / Bebidas

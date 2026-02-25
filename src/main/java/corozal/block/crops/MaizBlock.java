@@ -36,11 +36,11 @@ public class MaizBlock extends CropBlock {
      * Dependen de la cantidad de estados que tiene tu cultivo!
      */
     private static final VoxelShape[] SHAPE_BY_AGE = new VoxelShape[]{
-    Block.box(0.0, 0.0, 0.0, 16.0, 4.0, 16.0),
+    Block.box(0.0, 0.0, 0.0, 16.0, 6.0, 16.0),
     Block.box(0.0, 0.0, 0.0, 16.0, 8.0, 16.0),
     Block.box(0.0, 0.0, 0.0, 16.0, 12.0, 16.0),
     Block.box(0.0, 0.0, 0.0, 16.0, 16.0, 16.0),
-    Block.box(0.0, 0.0, 0.0, 16.0, 8.0, 16.0),
+    Block.box(0.0, 0.0, 0.0, 16.0, 16.0, 16.0),
     Block.box(0.0, 0.0, 0.0, 16.0, 16.0, 16.0),
     };
 
